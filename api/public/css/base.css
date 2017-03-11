@@ -1,0 +1,46 @@
+/* basic layout css */
+@font-face {
+  font-family: "bpmenu";
+  font-style: normal;
+  font-weight: normal;
+  src: url("font/bpmenu.eot") format("embedded-opentype"), url("font/bpmenu.woff") format("woff"), url("font/bpmenu.ttf") format("truetype"), url("font/bpmenu.svg") format("svg");
+}
+body { margin: 0px auto; padding-top: 120px; font-family: Arial,Helvetica,sans-serif; font-size: 14px; color: rgb(51, 51, 51); min-width: 950px; }
+a { text-decoration: none; color: rgb(102, 102, 102); }
+header { width: 100%; height: 75px; float: left; border-bottom: 3px solid rgb(248, 132, 33); }
+header ol { list-style: outside none none; width: 850px; float: right; height: 20px; margin: 0px 0px 25px; padding: 0px; text-align: center; line-height: 22px; font-size: 12px; }
+header ol li { display: inline; height: 100%; float: right; padding: 0px 10px; border-right: 2px solid rgb(248, 132, 33); text-transform: uppercase; }
+section#container { width: 100%; height: auto; float: left; min-height: 520px; }
+footer { width: 98%; height: 25px; float: left; margin-top: 50px; padding: 5px 1%; border-top: 3px solid rgb(248, 132, 33); }
+
+
+/* header item css */
+.cartcount { cursor: pointer; background: transparent url("/img/cart_thumb.png") no-repeat scroll 8px center; padding-left: 35px; }
+#recent_items { width: 300px; height: 110px; position: absolute; top: 30px; right: 0px; display: none; background: rgb(255, 255, 255) none repeat scroll 0% 0%; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); z-index: 1; }
+#recent_items h2 { float: left; width: 94%; height: 20px; margin: 0px 0px 3px; padding: 4px 2%; border-bottom: 1px dashed rgb(204, 204, 204); font-size: 15px; }
+input#headprd_search { border-width: 0px 0px 1px; border-style: none none solid; border-color: -moz-use-text-color -moz-use-text-color rgb(204, 204, 204); -moz-border-top-colors: none; -moz-border-right-colors: none; -moz-border-bottom-colors: none; -moz-border-left-colors: none; border-image: none; border-radius: 8px; padding: 2px 28px 2px 10px; color: rgb(102, 102, 102); }
+#hprd_searchbtn { width: 20px; height: 20px; border: 0px none; cursor: pointer; text-indent: 100px; overflow: hidden; margin-left: -23px; background: transparent url("/img/search-icon.png") no-repeat scroll center center; }
+#switch_order { width: 20px; display: inline-block; background: transparent url("/img/switch_order.png") no-repeat scroll 0px -29px; cursor: pointer; }
+#switch_order:hover { background: transparent url("/img/switch_order.png") no-repeat scroll 0% 0%; }
+b.orderid_info { cursor: pointer; }
+
+/* footer item css */
+.copy { width: 50%; float: left; }
+.credit { width: 50%; float: right; text-align: right; }
+ul, ol { list-style: outside none none; margin: 0px; padding: 0px; }
+
+
+/* main menu css */
+header .hs-menu { list-style: outside none none; width: 850px; float: right; height: 30px; margin: 0px; padding: 0px; text-align: center; line-height: 30px; clear: right; }
+header .hs-menu > li { display: inline-block; height: 100%; float: right; padding: 0px 10px; border-right: 1px solid rgb(248, 132, 33); }
+header .hs-menu li a { color: rgb(102, 102, 102); cursor: pointer; }
+header .hs-menu > li > a:not(:first-child)::after, header .hs-menu > li > a:not(:last-child)::after { border: 1px solid rgb(204, 204, 204); border-radius: 10px; content: ""; float: right; font-family: "bpmenu"; line-height: 8px; margin: 6px 0px 0px 3px; padding: 6px 3px 2px; }
+header .hs-menu > li.active > a:not(:first-child)::before, header .hs-menu > li.active > a:not(:last-child)::before { border-color: rgb(233, 233, 233) transparent transparent; border-image: none; border-style: solid; border-width: 10px; content: " "; position: absolute; margin: 30px 0px 0px; text-align: center; z-index: 2; }
+header .hs-submenu { background: rgb(247, 247, 247) none repeat scroll 0% 0%; width: 100%; min-width: 950px; height: auto; position: absolute; left: 0px; display: none; text-align: center; margin: 3px 0px 0px; z-index: 1; box-shadow: 0px 3px 5px rgb(204, 204, 204); }
+header .hs-submenu li { width: 8%; display: inline-block; border: medium none; padding: 1% 1.5%; box-shadow: -20px 0px 5px -20px rgb(221, 221, 221); }
+header .hs-submenu li:first-child { box-shadow: none; }
+.hs-submenu img { width: 100%; }
+.hs-submenu span { float: left; height: 30px; width: 100%; text-align: center; line-height: 15px; font-size: 80%; }
+header .home a { width: 35px; height: 100%; float: left; background: transparent url("/img/home-icon.png") no-repeat scroll center 3px; }
+hr { margin-top: 10px; margin-bottom: 10px; border-top: 2px solid #bbb;  }
+button .hide-button {visibility: hidden;}
