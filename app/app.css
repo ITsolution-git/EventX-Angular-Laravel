@@ -32,3 +32,50 @@
     max-width: 730px;
   }
 }
+
+/* global styles for theme */
+.reddish-dark{
+  background-color: #820c1c;
+}
+.reddish-dark-text{
+  color: #820c1c;
+}
+.reddish-lightdark{
+  background-color: #610915;
+}
+.reddish-lightdark-text{
+  color: #610915;
+}
+
+a{
+  color: #999999;
+}
+a:hover{
+  color: #6d0815;
+}
+
+.btn {
+  background-color: #610915;
+}
+.btn:hover {
+  background-color: #820c1c;
+  color: #d6d6d6;
+}
+
+/* Log in Screen */
+body.loginscreen{
+  background: url(../assets/images/main_bg.jpg) repeat left top; 
+  color: #820c1c;
+}
+body{
+  background: url(../assets/images/main_bg.jpg) repeat left top; 
+  color: #820c1c;
+}
+
+/*Sidebar*/
+ul.side-nav.leftside-navigation li a{
+  color: #999999;
+}
+ul.side-nav.leftside-navigation li.active a{
+  color: #6d0815;
+}

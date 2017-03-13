@@ -2,8 +2,8 @@
 
 (function() {
 
-function UserResource($resource) {
-  return $resource('/api/public/users/:id/:controller', {
+function UserResource($resource, appConfig) {
+  return $resource(appConfig.routes.userBaseUrl + ':id/:controller', {
     id: '@_id'
   }, {
     changePassword: {

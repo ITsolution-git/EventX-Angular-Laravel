@@ -37,12 +37,12 @@
       <link rel="stylesheet" href="assets/css/prism.css">
       <link rel="stylesheet" href="assets/css/style.css">
       <link rel="stylesheet" href="components/footer/footer.css">
-      <link rel="stylesheet" href="components/oauth-buttons/oauth-buttons.css">
+      <!-- <link rel="stylesheet" href="components/oauth-buttons/oauth-buttons.css"> -->
       <!-- endinjector -->
     <!-- endbuild -->
     
   </head>
-  <body ng-app="eventx" ng-class="{cyan:$state.current.name === 'login'}">
+  <body ng-app="eventx" ng-class="{ loginscreen:$state.current.name === 'login'}">
     <!-- Start Page Loading -->
       <div id="loader-wrapper">
           <div id="loader"></div>        
@@ -194,8 +194,8 @@
       <script src="components/mongoose-error/mongoose-error.directive.js"></script>
       <script src="components/navbar/navbar.controller.js"></script>
       <script src="components/navbar/navbar.directive.js"></script>
-      <script src="components/oauth-buttons/oauth-buttons.controller.js"></script>
-      <script src="components/oauth-buttons/oauth-buttons.directive.js"></script>
+      <!-- <script src="components/oauth-buttons/oauth-buttons.controller.js"></script>
+      <script src="components/oauth-buttons/oauth-buttons.directive.js"></script> -->
       <script src="components/sidebar/sidebar.controller.js"></script>
       <script src="components/sidebar/sidebar.directive.js"></script>
       <!-- <script src="components/socket/socket.service.js"></script> -->

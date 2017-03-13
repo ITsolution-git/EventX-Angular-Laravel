@@ -1,7 +1,7 @@
 
 "use strict";
 
-angular.module('eventx').factory('CalendarEvent', function($resource){
+angular.module('eventx').factory('CalendarEvent', function($resource, appConfig){
   //return $resource('/api/events', { id: '@id' });
-  return $resource('/api/public/events/:id', null, {'update': { method:'PUT' } });
+  return $resource(appConfig.routes.eventBaseUrl + ':id', null, {'update': { method:'PUT' } });
 });
