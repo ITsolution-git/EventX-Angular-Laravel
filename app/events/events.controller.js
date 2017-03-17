@@ -13,6 +13,7 @@ angular.module('eventx')
         $scope.userInfo = {}
         $scope.newEvent = {};
         $scope.getCurrentUser = Auth.getCurrentUser;
+        
 
         $scope.getCurrentUser(function(user) {
             $scope.currentUser = user;
@@ -69,7 +70,7 @@ angular.module('eventx')
         }
 
         $scope.saveEvent = function() {
-            
+
             if ($scope.newEvent && !$scope.newEvent.edate) {
                 $scope.newEvent.edate = moment().format();
             }
