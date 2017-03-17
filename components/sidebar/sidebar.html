@@ -1,5 +1,14 @@
 
-<aside id="left-sidebar-nav" ng-show="side.isLoggedIn()">
+<aside id="left-sidebar-nav" ng-show="side.isLoggedIn()" style="z-index:1000">
+
+<ul id="settings-out" class="side-nav events-side-navigation" style="z-index: 9999">
+  <li class="li-hover">
+    <div class="col s12 m12 l12 settings-div">
+        <settings></settings>
+    </div>
+  </li>
+</ul>
+
 <ul id="slide-out" class="side-nav fixed leftside-navigation reddish-lightdark-text">
     <li class="user-details">
     <div class="row">
@@ -7,9 +16,10 @@
             <img src="assets/images/profile.png" alt="" class="circle responsive-img valign profile-image">
         </div>
         <div class="col col s8 m8 l8">
-            <a class="btn-flat dropdown-button waves-effect waves-light white-text profile-btn" ui-sref="settings">John Doe<i class="mdi-navigation-arrow-drop-down right"></i></a>
+            <a href="#" data-activates="settings-out" class="settings-collapse setting-collapse-add btn-flat dropdown-button waves-effect waves-light white-text profile-btn" >John Doe<i class="mdi-navigation-arrow-drop-down right"></i></a>
+            
+
             <p ng-show="side.isLoggedIn()" class="user-roal">Hello {{ side.getCurrentUser().name }}</p>
-             
         </div>
     </div>
     </li>
@@ -19,7 +29,7 @@
     </li>
     <li class="bold" ng-class="{active:$state.current.name === 'dragdrop'}"><a ui-sref="dragdrop" class="waves-effect waves-cyan"><i class="mdi-action-open-with"></i> Drag & Drop</a>
     </li>     
-    <li class="bold" ng-class="{active:$state.current.name === 'doc'}"><a ui-sref="doc" class="waves-effect waves-cyan"><i class="mdi-editor-insert-drive-file"></i> Documentation</a>
+   <!--  <li class="bold" ng-class="{active:$state.current.name === 'doc'}"><a ui-sref="doc" class="waves-effect waves-cyan"><i class="mdi-editor-insert-drive-file"></i> Documentation</a> -->
     </li>     
 </ul>
 <a href="#" data-activates="slide-out" class="sidebar-collapse btn-floating btn-medium waves-effect waves-light hide-on-large-only"><i class="mdi-navigation-menu"></i></a>

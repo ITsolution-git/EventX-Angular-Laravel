@@ -27,15 +27,15 @@
     <div class="container">
         <div class="section">
             <div class="row">
-                <div class="col s6"><p class="caption">Create/Edit all events and view on calender</p></div>
-                <div class="input-field col s5">
+                <div class="col hide-on-small-only m6"><p class="caption">Create/Edit all events and view on calender</p></div>
+                <div class="input-field col s7 m5">
                     <i ng-class="{'active':focus}" class="mdi-action-search prefix"></i>
                     <input id="search" type="text" ng-model="search_events">
-                    <label for="search" ng-class="{'active':focus}">Search an event by title</label>
+                    <label for="search" ng-class="{'active':focus}">Search </label>
                 </div>
-                <div class="col s1">
+                <div class="col s5 m1 right">
                     <a href="#" data-activates="new-event-out" class="new-event-collapse"></a>
-                    <a href="#" ng-click="openForm()" data-position="bottom" data-delay="5" data-tooltip="Add new" class="tooltipped task-add btn-floating btn-large waves-effect waves-light "><i class="mdi-content-add"></i></a>
+                    <a href="#" ng-click="openForm()" data-position="bottom" data-delay="5" data-tooltip="Add new" class="tooltipped task-add btn-floating btn-large waves-effect waves-light " style="float:right"><i class="mdi-content-add"></i></a>
                 </div>
             </div>
             
@@ -43,9 +43,9 @@
             <div class="col s12">
                 <div class="row">
                     <section class="plans-container" id="plans">
-                        <article class="col s12 m6 l4" ng-repeat="event in events | orderBy: '-start' | filter:search_events">
+                        <article class="col s12  l4" ng-repeat="event in events | orderBy: '-start' | filter:search_events">
                             <div class="card hoverable">
-                                <div class="card-image light-blue waves-effect">
+                                <div class="card-image reddish-lightdark waves-effect">
                                     <div class="card-title">{{event.title}}</div>
                                     <div class="price">
                                         <i ng-if="event.icon" class="{{event.icon}} icon white-text small"></i>
@@ -93,15 +93,15 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="input-field col s6">
+                                                    <div class="input-field col s12 ">
                                                         <i class="mdi-editor-insert-invitation prefix"></i>
                                                         <label for="sdate" > Start Date</label>
-                                                        <input  type="text" id="sdate" class="datepicker" ng-model="newEvent.sDate" />
+                                                        <input  type="text" id="sdate" class="datepicker" ng-model="newEvent.start "  />
                                                     </div>
-                                                    <div class="input-field col s6">
+                                                    <div class="input-field col s12 ">
                                                         <i class="mdi-editor-insert-invitation prefix"></i>
                                                         <label for="edate"> End Date</label>
-                                                        <input type="text" id="edate" class="datepicker" ng-model="newEvent.eDate" />
+                                                        <input type="text" id="edate" class="datepicker" ng-model="newEvent.end " />
                                                     </div>
                                                 </div>
                                                 <div class="row">
@@ -120,7 +120,6 @@
                                                 <div class="row">
                                                     <div class="input-field col s6">
                                                         <i class="mdi-repeat prefix"></i>
-                                                        <label for="input_starttime">Repeat Every</label>
                                                         <select class="" ng-model="newEvent.repeatEvery" material-select watch>
                                                             <option value="" disabled selected>Repeat every</option>
                                                             <option ng-repeat="val in [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]"
@@ -129,7 +128,8 @@
                                                         </select>
                                                     </div>
                                                     <div class="input-field col s6">
-                                                        <label for="input_starttime"></label>
+                                                        <i class="mdi-repeat prefix"></i>
+                                                        <label for="input_endtime"></label>
                                                         <select class="" ng-model="newEvent.repeatCount" material-select watch>
                                                             <option value="" disabled selected></option>
                                                             <option ng-repeat="val in ['Once', 'Days', 'Weeks', 'Months']"
@@ -140,7 +140,7 @@
                                                 </div>
 
                                                 <div class="row">
-                                                    <div class="input-field col s6">
+                                                    <div class="input-field col s6 ">
                                                         <i class="mdi-blank prefix"></i>
                                                         <label for="input_time_interval">Time Interval</label>
                                                         <input id="input_time_interval" type="text" ng-model="newEvent.timeInterval">
@@ -215,12 +215,14 @@
                                                     </div>
                                                 </div>-->
                                                 <div class="row">
-                                                    <div class="input-field col s4">
+                                                    <div class="input-field col s12">
                                                         <input type='checkbox' id='event-allday' ng-model="newEvent.allDay" />
                                                         <label for='event-allday'>allDay?</label>
                                                     </div>
-                                                    <div class="col s8">
-                                                        <button class="btn indigo waves-effect waves-light"  type="submit" name="action">Save
+                                                </div>
+                                                </div>
+                                                    <div class="col offset-s3 s9">
+                                                        <button class="btn  waves-effect waves-light"  type="submit" name="action">Save
                                                         <i class="mdi-content-send right"></i>
                                                         </button>
                                                         <button class="btn waves-effect waves-light" type="button" ng-click="deleteEvent()">
@@ -260,7 +262,7 @@ $(document).ready(function(){
         selectMonths: true, // Creates a dropdown to control month
         selectYears: 15, // Creates a dropdown of 15 years to control year
         onClose: function(){
-        $(document.activeElement).blur()
+            $(document.activeElement).blur()
         }
     });
     $('#edate').pickadate({
@@ -268,7 +270,7 @@ $(document).ready(function(){
         selectMonths: true, // Creates a dropdown to control month
         selectYears: 15, // Creates a dropdown of 15 years to control year
         onClose: function(){
-        $(document.activeElement).blur()
+            $(document.activeElement).blur()
         }
     });
 

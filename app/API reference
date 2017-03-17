@@ -1,0 +1,31 @@
+GET /api/users/me	 ;get my user information
+	expecting response:
+		{"profile":{"name":"Admin","role":"admin"},"token":{"_id":2,"role":"admin"},"_id":2,"name":"Admin","email":"admin@example.com","role":"admin","provider":"local"}
+GET /api/users        ;get  user list
+	expecting response
+		[{"profile":{"name":"Test UserId","role":"user"},"token":{"_id":1,"role":"user"},"_id":1,"name":"Test User","email":"test@example.com","role":"user","provider":"local"},{"profile":{"name":"Admin","role":"admin"},"token":{"_id":2,"role":"admin"},"_id":2,"name":"Admin","email":"admin@example.com","role":"admin","provider":"local"}]
+PUT /api/users/{user_id}/password  ;change user_id's password
+	request payload:
+		{"oldPassword":"admin","newPassword":"admin"}
+	expecting response: {} 200 OK
+
+
+GET /api/public/api/events   ;get list of events
+	request payload: none
+	response: [{"_id":1,"title":"All Day Event","description":"long description","className":"green","start":"2017-03-09T15:10:13.000Z","end":"2017-03-09T16:10:13.000Z","icon":"mdi-alert-warning","allDay":false,"createdAt":"2017-03-09T20:10:13.000Z","updatedAt":"2017-03-09T20:10:13.000Z","UserId":null,"User":null}]
+POST /api/public/api/events  ;add event
+	request payload:
+		{"title":"NEW","description":"description","className":"cyan","icon":"mdi-action-shopping-basket","allDay":true,"creator":2,"User":{},"start":"2017-03-16T01:30:00","end":"2017-03-16T02:00:00","allday":{"originalEvent":{"isTrusted":true},"type":"mouseup","timeStamp":190601.535,"jQuery1112039793501570517886":true,"toElement":{},"screenY":297,"screenX":701,"pageY":406,"pageX":706,"offsetY":20,"offsetX":394,"fromElement":null,"clientY":230,"clientX":706,"buttons":0,"button":0,"which":1,"view":"$WINDOW","target":{},"shiftKey":false,"relatedTarget":null,"metaKey":false,"eventPhase":3,"currentTarget":"$DOCUMENT","ctrlKey":false,"cancelable":true,"bubbles":true,"altKey":false,"delegateTarget":"$DOCUMENT","handleObj":{"type":"mouseup","origType":"mouseup","guid":316,"namespace":""}}}
+	response:   ;if success added repsonse
+		{"_id":20,"title":"NEW","description":"description","className":"cyan","icon":"mdi-action-shopping-basket","allDay":true,"start":"2017-03-16T01:30:00.000Z","end":"2017-03-16T02:00:00.000Z","updatedAt":"2017-03-16T21:02:55.000Z","createdAt":"2017-03-16T21:02:55.000Z"}
+GET /api/public/api/events/{event_id}   ;get specific event
+	request payload:
+	response : event with id of event_id
+PUT(PATCH) /api/public/api/events/{event_id}  ;update event
+	request payload:
+		{"title":"NEW","description":"description","className":"cyan","icon":"mdi-action-info","allDay":true,"creator":2,"User":null,"_id":20,"start":"2017-03-16","end":null,"createdAt":"2017-03-16T21:02:55.000Z","updatedAt":"2017-03-16T21:02:55.000Z","UserId":null,"source":{"className":[]},"_allDay":true,"_start":"2017-03-16","_end":null}
+	response:   ;if success save
+		{"_id":20,"title":"NEW","description":"description","className":"cyan","start":"2017-03-16T00:00:00.000Z","end":null,"icon":"mdi-action-info","allDay":true,"createdAt":"2017-03-16T21:02:55.000Z","updatedAt":"2017-03-16T21:06:43.000Z","UserId":null}
+DELETE /api/public/api/events/{event_id}  ;delete event
+	request payload: none
+	response: deleted event object

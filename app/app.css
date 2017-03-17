@@ -46,7 +46,7 @@
 .reddish-lightdark-text{
   color: #610915;
 }
-
+/*General Styles*/
 a{
   color: #999999;
 }
@@ -62,6 +62,10 @@ a:hover{
   color: #d6d6d6;
 }
 
+.btn:hover, .btn-large:hover{
+  background-color: #820c1c;
+  color: #d6d6d6;
+}
 /* Log in Screen */
 body.loginscreen{
   background: url(../assets/images/main_bg.jpg) repeat left top; 
@@ -78,4 +82,42 @@ ul.side-nav.leftside-navigation li a{
 }
 ul.side-nav.leftside-navigation li.active a{
   color: #6d0815;
+}
+
+/*Color and Date picker theme*/
+.picker__close, .picker__today{
+  color: #820c1c;
+}
+.picker__date-display, .picker__weekday-display, .picker__date-display{
+
+  background-color: #820c1c;
+}
+
+/*Settings CSS*/
+.settings-div .settings-container{
+  margin: auto 10px;
+}
+.fc-widget-header{
+  background-color: #820c1c;
+} 
+.logo-img{
+
+  width: 64px;
+  height: 64px;
+}  
+#cal-container{
+  height: calc(100vh - 64px);
+}
+@media (max-width:  600px){
+  .logo-img{
+    width: 56px;
+    height: 56px;
+  }  
+  #cal-container{
+    height: calc(100vh - 56px);
+  }
+}
+
+#left-sidebar-nav .sidebar-collapse{
+  background-color: gray;
 }

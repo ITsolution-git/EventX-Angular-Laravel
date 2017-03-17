@@ -7,7 +7,7 @@ angular.module('eventx').directive('fullCalendar', function (CalendarEvent, $log
         var calendar = null;
 
         $('.event-collapse').sideNav({
-            menuWidth: 450,
+            menuWidth: 300,
             edge: 'right'
         });
 
@@ -16,7 +16,6 @@ angular.module('eventx').directive('fullCalendar', function (CalendarEvent, $log
         });
 
         var alertOnEventClick = function(date, jsEvent, view) {
-          console.log(date);
           $('.event-collapse').sideNav('show');
           scope.focus = true;
           $timeout(function() {
@@ -31,8 +30,10 @@ angular.module('eventx').directive('fullCalendar', function (CalendarEvent, $log
                 };
             });
         };
+        // function formatInterval(interval){
+        //     // change interval in minute => REDUX
+        // }
         function initCalendar() {
-
             calendar = $calendar.fullCalendar({
                 lang: 'en',
                 editable: true,
@@ -42,10 +43,29 @@ angular.module('eventx').directive('fullCalendar', function (CalendarEvent, $log
                 unselectAuto: false,
                 disableResizing: false,
                 droppable: true,
+                height: $('#cal-container').height(),
+                customButtons: {
+                    printButton: {
+                        text: 'Print',
+                        click: function() {
+                            window.print();
+                        }
+                    }
+                },
+                // dayClick: function(...){
+                //     //find out smallest interval in this day
+                //     var smllestInterval = 60;
+                //     angular.forEach(scope.events, function(event){
+                //         if((event.start == $('#calendar').currentDate()) && (smallest > event.interval)){
+                //             smallestInterval = event.interval;
+                //         }
+                //     }
+                //     formatInterval(smallestInterval);
+                // },
                 eventLimit: true, // allow "more" link when too many events
                 header: {
                     left: 'title', //,today
-                    center: 'prev, next, today',
+                    center: 'prev, next, today, printButton',
                     right: 'month, agendaWeek, agendaDay' //month, agendaDay,
                 },
                 defaultView: 'agendaDay',
@@ -77,7 +97,6 @@ angular.module('eventx').directive('fullCalendar', function (CalendarEvent, $log
 
                     var defaultDuration = moment.duration($('#calendar').fullCalendar('option', 'defaultTimedEventDuration'));
                     var end = date.clone().add(defaultDuration); // on drop we only have date given to us
-                    
                     
                     
                     copiedEventObject.start = date.format();
@@ -124,14 +143,15 @@ angular.module('eventx').directive('fullCalendar', function (CalendarEvent, $log
                     callback(scope.events);
                 },
                 eventRender: function (event, element, icon) {
-                        // if (!event.description == "") {
-                        //     element.find('.fc-title').append("<br/><span class='ultra-light'>" + event.description + "</span>");
-                        // }
-                        if (!event.icon == "") {
-                            element.find('.fc-title').append("<i class=' fc-icon-top-right " + event.icon + " '></i>");
-                        }
+                    // if (!event.description == "") {
+                    //     element.find('.fc-title').append("<br/><span class='ultra-light'>" + event.description + "</span>");
+                    // }
+                    if (!event.icon == "") {
+                        element.find('.fc-title').append("<i class=' fc-icon-top-right " + event.icon + " '></i>");
                     }
+                }
             });
+            
 
             $('.fc-header-right, .fc-header-center', $calendar).hide();
 

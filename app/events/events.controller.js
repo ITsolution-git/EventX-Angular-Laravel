@@ -27,7 +27,7 @@ angular.module('eventx')
         });
 
         $('.new-event-collapse').sideNav({
-            menuWidth: 450,
+            menuWidth: 300,
             edge: 'right'
         });
 
@@ -39,7 +39,6 @@ angular.module('eventx')
         });
 
         $scope.openForm = function() {
-            console.log('asdfasdf');
             $timeout(function() {
                 $scope.newEvent = {};
                 $('.new-event-collapse').sideNav('show');
@@ -65,11 +64,12 @@ angular.module('eventx')
                 $scope.newEvent.starttime = moment.utc(item.start).format("hh:mmA");
                 $scope.newEvent.endtime = moment.utc(item.end).format("hh:mmA");
                 $('.new-event-collapse').sideNav('show');
+                $('.settings-collapse').sideNav('hide');
             }, 1, true);
         }
 
         $scope.saveEvent = function() {
-
+            
             if ($scope.newEvent && !$scope.newEvent.edate) {
                 $scope.newEvent.edate = moment().format();
             }
