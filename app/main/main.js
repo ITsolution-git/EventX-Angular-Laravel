@@ -7,7 +7,6 @@ angular.module('eventx')
         url: '/',
         templateUrl: 'app/main/main.html',
         controller: 'MainController',
-        controllerAs: 'main',
-        authenticate: 'admin'
+        controllerAs: 'main'
       });
   });
